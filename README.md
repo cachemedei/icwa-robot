@@ -22,4 +22,4 @@ You have a toy robot on a tabletop, a grid of 5 x 5 units with no obstructions. 
 - Sam will tell you his coordinates and which direction he is currently facing
 
 ## Running Sam's Program
-- 
+- This program has been written in Python, running the file, toy_robot.py, in a terminal will allow you to test out all of Sam's commands
