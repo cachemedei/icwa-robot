@@ -23,3 +23,21 @@ You have a toy robot on a tabletop, a grid of 5 x 5 units with no obstructions. 
 
 ## Running Sam's Program
 - This program has been written in Python, running the file, toy_robot.py, in a terminal will allow you to test out all of Sam's commands
+
+## Example
+- Input:
+sam.move()
+sam.report()
+sam.place(2, 2, "north")
+sam.report()
+sam.right()
+sam.report()
+sam.move()
+sam.move()
+sam.report()
+
+- Output:
+Please place Sam on the board!
+Coordinates: (2, 2) | Facing: North
+Coordinates: (2, 2) | Facing: East
+Coordinates: (4, 2) | Facing: East

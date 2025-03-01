@@ -11,12 +11,20 @@ class Robot():
             print("Please place Sam on the board!")
         else:
             print(f"Coordinates: ({self.posX}, {self.posY}) | Facing: {self.face.title()}")
+    
+    def validPos(self, xcoord, ycoord):
+        if 0 <= xcoord <= 4 and 0 <= ycoord <= 4:
+            return True
+        
+    def validDirection(self, direction):
+        if direction == "North" or direction == "South" or direction == "East" or direction == "West":
+            return True
 
     # Place Sam on table
     def place(self, x, y, facing):
         face = facing.title()
         # Validate placement
-        if 0 <= x <= 4 and 0 <= y <= 4 and face == "North" or face == "South" or face == "East" or face == "West":
+        if self.validPos(x, y) == True and self.validDirection(face) == True:
             self.posX = x
             self.posY = y
             self.face = face
@@ -61,12 +69,10 @@ class Robot():
             self.face = directions[(directions.index(self.face) + 1) % 4]
 
 sam = Robot()
-sam.place(2, 2, "north")
-sam.report()
-sam.right()
-sam.report()
-sam.left()
-sam.report()
 
+sam.place(2, 2, "east")
+sam.report()
+sam.move()
+sam.report()
 
 
