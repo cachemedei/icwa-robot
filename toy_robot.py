@@ -23,26 +23,46 @@ class Robot():
                 self.posY = 4
 
         # facing south => decrease Y
-        if self.face == "South":
+        elif self.face == "South":
             self.posY -= 1
             if self.posY < 0:
                 self.posY = 0
 
         # facing east => increase X
-        if self.face == "East":
+        elif self.face == "East":
             self.posX += 1
             if self.posX > 4:
                 self.posX = 4
 
         # facing west => decrease X
-        if self.face == "West":
+        elif self.face == "West":
             self.posX -= 1
             if self.posX < 0:
                 self.posX = 0
+    
+    def right(self):
+        if self.face == "North":
+            self.face = "East"
+        elif self.face == "East":
+            self.face = "South"
+        elif self.face == "South":
+            self.face = "West"
+        else: self.face = "North"
+
+    def left(self):
+        if self.face == "North":
+            self.face = "West"
+        elif self.face == "East":
+            self.face = "North"
+        elif self.face == "South":
+            self.face = "East"
+        else: self.face = "South"
 
 sam = Robot()
 sam.report()
 sam.place(2, 4, "East")
 sam.report()
+sam.right()
+sam.move()
 sam.move()
 sam.report()
