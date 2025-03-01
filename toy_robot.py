@@ -19,7 +19,7 @@ class Robot():
         if 0 <= x <= 4 and 0 <= y <= 4 and face == "North" or face == "South" or face == "East" or face == "West":
             self.posX = x
             self.posY = y
-            self.face = facing
+            self.face = face
             self.is_placed = True
         else:
             print("Please provide coordinates within (0, 0) and (4, 4) and a direction of North, South, East or West")
@@ -51,25 +51,21 @@ class Robot():
                 self.posX = self.backward(self.posX)
     
     def right(self):
-        if self.face == "North":
-            self.face = "East"
-        elif self.face == "East":
-            self.face = "South"
-        elif self.face == "South":
-            self.face = "West"
-        else: self.face = "North"
+        if self.is_placed:
+            directions = ["North", "East", "South", "West"]
+            self.face = directions[(directions.index(self.face) + 1) % 4]
 
     def left(self):
-        if self.face == "North":
-            self.face = "West"
-        elif self.face == "East":
-            self.face = "North"
-        elif self.face == "South":
-            self.face = "East"
-        else: self.face = "South"
+        if self.is_placed:
+            directions = ["North", "West", "South", "East"]
+            self.face = directions[(directions.index(self.face) + 1) % 4]
 
 sam = Robot()
 sam.place(2, 2, "north")
+sam.report()
+sam.right()
+sam.report()
+sam.left()
 sam.report()
 
 
