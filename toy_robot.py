@@ -12,19 +12,20 @@ class Robot():
         else:
             print(f"Coordinates: ({self.posX}, {self.posY}) | Facing: {self.face.title()}")
     
-    def validPos(self, xcoord, ycoord):
-        if 0 <= xcoord <= 4 and 0 <= ycoord <= 4:
+    def valid_pos(self, pos):
+        if pos.is_integer() and 0 <= pos <= 4:
             return True
-        
-    def validDirection(self, direction):
-        if direction == "North" or direction == "South" or direction == "East" or direction == "West":
+    
+    def valid_direction(self, direction):
+        directions = ["North", "South", "East", "West"]
+        if direction.title() in directions:
             return True
 
     # Place Sam on table
     def place(self, x, y, facing):
         face = facing.title()
         # Validate placement
-        if self.validPos(x, y) == True and self.validDirection(face) == True:
+        if self.valid_pos(x) and self.valid_pos(y) and self.valid_direction(face):
             self.posX = x
             self.posY = y
             self.face = face
@@ -67,12 +68,3 @@ class Robot():
         if self.is_placed:
             directions = ["North", "West", "South", "East"]
             self.face = directions[(directions.index(self.face) + 1) % 4]
-
-sam = Robot()
-
-sam.place(2, 2, "east")
-sam.report()
-sam.move()
-sam.report()
-
-
