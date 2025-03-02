@@ -13,13 +13,11 @@ class Robot():
             print(f"Coordinates: ({self.posX}, {self.posY}) | Facing: {self.face.title()}")
     
     def valid_pos(self, pos):
-        if pos.is_integer() and 0 <= pos <= 4:
-            return True
+        return pos.is_integer() and 0 <= pos <= 4
     
     def valid_direction(self, direction):
         directions = ["North", "South", "East", "West"]
-        if direction.title() in directions:
-            return True
+        return direction.title() in directions
 
     # Place Sam on table
     def place(self, x, y, facing):
