@@ -24,20 +24,9 @@ You have a toy robot on a tabletop, a grid of 5 x 5 units with no obstructions. 
 ## Running Sam's Program
 - This program has been written in Python, running the file, robot_script.py, in the terminal will allow you to test out all of Sam's commands
 
-## Example
-- Input:
-sam.move()
-sam.report()
-sam.place(2, 2, "north")
-sam.report()
-sam.right()
-sam.report()
-sam.move()
-sam.move()
-sam.report()
-
-- Output:
-Please place Sam on the board!
-Coordinates: (2, 2) | Facing: North
-Coordinates: (2, 2) | Facing: East
-Coordinates: (4, 2) | Facing: East
+## Tests
+- Prior to this project I had not yet learnt how to write tests so I spent some time researching Pythons' unittest module
+- I tested to ensure the program:
+    - Only accepted whole integers between 0 and 4 for moving Sam
+    - That the distance moved was only 1 space
+    - That the correct direction was moved based on which way the robot was facing
